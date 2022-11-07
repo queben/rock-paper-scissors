@@ -21,14 +21,14 @@ function playRound(playerSelection, computerChoice) {
         (computerChoice === 'Paper' && playerSelection === 'rock') ||
         (computerChoice === 'Scissors' && playerSelection === 'paper')
     ) {
-        return 'lose'
+        return 0
     } else if ((playerSelection === 'rock' && computerChoice === 'Scissors') ||
     (playerSelection === 'paper' && computerChoice === 'Rock') ||
     (playerSelection === 'scissors' && computerChoice === 'Paper')
     ) {
-        return 'win'
+        return 1
     } else {
-        return 'Tie!'
+        return 2
     }
 }
 
@@ -40,20 +40,35 @@ function game() {
     for(let i = 0; i < 5; i++) {
 
         let playerSelection = prompt(`Round ${i + 1}. What shall it be?`, '')
+
+        if(playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') {
+           
+        } else {
+            for(let j = 0; j < 1; j = j) {
+                playerSelection = prompt(`Please make a valid selection! Rock, paper, or scissors!`, '')
+
+                if(playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') {
+                    j++;  
+            } else {
+               
+            }
+        }
+        }
+
         let computerChoice = getComputerChoice();
 
-        if (playRound(playerSelection, computerChoice) === 'win') {
+        if (playRound(playerSelection, computerChoice) === 1) {
             playerWins++;
             playerSelection = (playerSelection.substring(0, 1)).toUpperCase() + playerSelection.slice(1);
             alert(`You Win! ${playerSelection} beats ${computerChoice}`)
-        } else if (playRound(playerSelection, computerChoice) === 'lose') {
+        } else if (playRound(playerSelection, computerChoice) === 0) {
             computerWins++;
             playerSelection = (playerSelection.substring(0, 1)).toUpperCase() + playerSelection.slice(1);
             alert(`You Lose! ${computerChoice} beats ${playerSelection}`)
-        } else if (playRound(playerSelection, computerChoice) === 'Tie') {
+        } else if (playRound(playerSelection, computerChoice) === 2) {
             alert('Tie!')
         } else {
-            alert('Unknown error has occurred!')
+            alert(playRound)
         }
 
     }
