@@ -75,7 +75,7 @@ function game() {
 
     if (playerWins > computerWins) {
         console.log(
-            playerWins, computerWins
+            `Player Wins: ${playerWins}`, `Computer Wins: ${computerWins}`
         )
         return `Congratulations! You've won the game!`
     } else if (playerWins < computerWins) {
