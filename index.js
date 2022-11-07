@@ -60,11 +60,11 @@ function game() {
         if (playRound(playerSelection, computerChoice) === 1) {
             playerWins++;
             playerSelection = (playerSelection.substring(0, 1)).toUpperCase() + playerSelection.slice(1);
-            alert(`You Win! ${playerSelection} beats ${computerChoice}`)
+            alert(`You won round ${i + 1}! ${playerSelection} beats ${computerChoice}`)
         } else if (playRound(playerSelection, computerChoice) === 0) {
             computerWins++;
             playerSelection = (playerSelection.substring(0, 1)).toUpperCase() + playerSelection.slice(1);
-            alert(`You Lose! ${computerChoice} beats ${playerSelection}`)
+            alert(`You lost round ${i + 1}! ${computerChoice} beats ${playerSelection}`)
         } else if (playRound(playerSelection, computerChoice) === 2) {
             alert('Tie!')
         } else {
