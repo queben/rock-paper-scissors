@@ -87,3 +87,11 @@ function game() {
         return 'You both tied!'
     }
 }
+
+const buttons = document.querySelectorAll('img')
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => console.log(1))
+})
+
+//console.log(game())
