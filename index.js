@@ -87,5 +87,3 @@ function game() {
         return 'You both tied!'
     }
 }
-
-console.log(game())

@@ -1,0 +1,45 @@
+body {
+    background-color: #696047;
+}
+
+.top {
+    margin-bottom: 240px;
+}
+
+h1, h2, p {
+    text-align: center;
+}
+
+h1 {
+    color: #5A1807;
+    font-size: 57px;
+}
+
+h2 {
+    color: #92AC86;
+    font-size: 39px;
+}
+
+p {
+    color: #A7D49B;
+    font-size: 27px;
+}
+
+.buttons-div {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 100px;
+}
+
+button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    width: 250px;
+    height: 220px;
+}
+
+img {
+    width: 250px;
+    height: 220px;
+}
