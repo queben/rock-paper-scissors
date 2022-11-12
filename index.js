@@ -1,6 +1,14 @@
 let round = 1;
 let playerWins = 0;
 let computerWins = 0;
+let para = document.querySelector('#round')
+const buttons = document.querySelectorAll('img')
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        game(button.getAttribute('id'), getComputerChoice())
+    })
+})
 
 function getComputerChoice() {
 
@@ -36,8 +44,6 @@ function playRound(playerSelection, computerChoice) {
 
 function game(playerSelection, computerChoice) {
 
-    let bottom = document.querySelector('body')
-    let para = document.querySelector('#round')
     para.innerText = '';
 
     if(round >= 5) {
@@ -75,19 +81,4 @@ function game(playerSelection, computerChoice) {
         para.innerText = 'An Error has occurred!';
     }
 
-}
-
-
-const buttons = document.querySelectorAll('img')
-
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        game(button.getAttribute('id'), getComputerChoice())
-    })
-})
-
-function restartGame() {
-    round = 0;
-    playerWins = 0;
-    computerWins = 0;
 }
