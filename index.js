@@ -1,3 +1,7 @@
+let round = 1;
+let playerWins = 0;
+let computerWins = 0;
+
 function getComputerChoice() {
 
     let computerChoice = Math.floor(Math.random() * 3 + 1)
@@ -15,8 +19,6 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerChoice) {
 
-    playerSelection = playerSelection.toLowerCase();
-
     if ((computerChoice === 'Rock' && playerSelection === 'scissors') ||
         (computerChoice === 'Paper' && playerSelection === 'rock') ||
         (computerChoice === 'Scissors' && playerSelection === 'paper')
@@ -32,46 +34,31 @@ function playRound(playerSelection, computerChoice) {
     }
 }
 
-function game() {
+function game(playerSelection, computerChoice) {
 
-    let playerWins = 0;
-    let computerWins = 0;
-    
-    for(let i = 0; i < 5; i++) {
+    let bottom = document.querySelector('body')
+    let para = document.querySelector('#round')
 
-        let playerSelection = prompt(`Round ${i + 1}. What shall it be?`, '')
+    para.innerText = '';
 
-        if(playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') {
-           
-        } else {
-            for(let j = 0; j < 1; j = j) {
-                playerSelection = prompt(`Please make a valid selection! Rock, paper, or scissors!`, '')
-
-                if(playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') {
-                    j++;  
-            } else {
-               
-            }
-        }
-        }
-
-        let computerChoice = getComputerChoice();
-
-        if (playRound(playerSelection, computerChoice) === 1) {
-            playerWins++;
-            playerSelection = (playerSelection.substring(0, 1)).toUpperCase() + playerSelection.slice(1);
-            alert(`You won round ${i + 1}! ${playerSelection} beats ${computerChoice}`)
-        } else if (playRound(playerSelection, computerChoice) === 0) {
-            computerWins++;
-            playerSelection = (playerSelection.substring(0, 1)).toUpperCase() + playerSelection.slice(1);
-            alert(`You lost round ${i + 1}! ${computerChoice} beats ${playerSelection}`)
-        } else if (playRound(playerSelection, computerChoice) === 2) {
-            alert('Tie!')
-        } else {
-            alert(playRound)
-        }
-
+    if (playRound(playerSelection, computerChoice) === 1) {
+        playerWins++;
+        playerSelection = (playerSelection.substring(0, 1)).toUpperCase() + playerSelection.slice(1);
+        para.innerText = `You won round ${round}! ${playerSelection} beats ${computerChoice}`
+        round++
+    } else if (playRound(playerSelection, computerChoice) === 0) {
+        computerWins++;
+        playerSelection = (playerSelection.substring(0, 1)).toUpperCase() + playerSelection.slice(1);
+        para.innerText = `You won round ${round}! ${playerSelection} beats ${computerChoice}`;
+        round++
+    } else if (playRound(playerSelection, computerChoice) === 2) {
+        para.innerText = 'Tie!'
+        round++
+    } else {
+        para.innerText = 'An Error has occurred!';
     }
+
+    
 
     if (playerWins > computerWins) {
         console.log(
@@ -88,10 +75,13 @@ function game() {
     }
 }
 
+
 const buttons = document.querySelectorAll('img')
 
 buttons.forEach(button => {
-    button.addEventListener('click', () => console.log(1))
+    button.addEventListener('click', () => {
+        game(button.getAttribute('id'), getComputerChoice())
+    })
 })
 
 //console.log(game())
