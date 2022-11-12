@@ -38,8 +38,25 @@ function game(playerSelection, computerChoice) {
 
     let bottom = document.querySelector('body')
     let para = document.querySelector('#round')
-
     para.innerText = '';
+
+    if(round >= 5) {
+        if (playerWins > computerWins) {
+            para.innerText = `Congratulations! You've won the game!
+            
+            Player Wins: ${playerWins}\nComputer Wins: ${computerWins}`
+            return 
+        } else if (playerWins < computerWins) {
+            para.innerText = `That's unfortunate! You've lost the game!
+            
+            Player Wins: ${playerWins}\nComputer Wins: ${computerWins}`
+            return 
+        } else {
+            para.innerText = 'You both tied!';
+            return
+        }
+    }
+
 
     if (playRound(playerSelection, computerChoice) === 1) {
         playerWins++;
@@ -58,21 +75,6 @@ function game(playerSelection, computerChoice) {
         para.innerText = 'An Error has occurred!';
     }
 
-    
-
-    if (playerWins > computerWins) {
-        console.log(
-            `Player Wins: ${playerWins}`, `Computer Wins: ${computerWins}`
-        )
-        return `Congratulations! You've won the game!`
-    } else if (playerWins < computerWins) {
-        console.log(
-            `Player Wins: ${playerWins}`, `Computer Wins: ${computerWins}`
-        )
-        return `That's unfortunate! You've lost the game!`
-    } else {
-        return 'You both tied!'
-    }
 }
 
 
@@ -84,4 +86,8 @@ buttons.forEach(button => {
     })
 })
 
-//console.log(game())
+function restartGame() {
+    round = 0;
+    playerWins = 0;
+    computerWins = 0;
+}

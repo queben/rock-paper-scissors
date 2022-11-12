@@ -29,6 +29,7 @@ p {
     display: flex;
     justify-content: space-evenly;
     gap: 100px;
+    margin-bottom: 100px;
 }
 
 button {
@@ -43,3 +44,9 @@ img {
     width: 250px;
     height: 220px;
 }
+
+img:active {
+    background-color: none;
+    
+    transform: translateY(12px);
+  }
