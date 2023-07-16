@@ -1,10 +1,7 @@
 Rock, paper, scissors!
 
-Initial assignment for The Odin Project!
+Need to refresh page to start a new game
 
-Will begin assignment with only outputting and inputting via
-console.log.
+Preview below
 
-Over time will develop into utilizing a GUI to play the game!
-
-Stay tuned!
+https://queben.github.io/rock-paper-scissors/
